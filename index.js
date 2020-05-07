@@ -21,12 +21,15 @@ const url = `https://graph.facebook.com/v2.6/1447427935553234/feed?fields=${fiel
   res.data.data.forEach((d) => {
     const post = {};
     post.id = d.object_id;
-    post.full_picture = d.full_picture;
     post.reactions = d.reactions.summary.total_count;
-    post.link = d.id;
     post.shares = d.shares.count;
-    post.place = d.place;
     post.message = d.message;
+    post.hashtag = d.message.split("#").map((m) => m.split(" ")[0]);
+    post.link = d.id;
+    post.full_picture = d.full_picture;
+    post.place = d.place;
+
+    post.hashtag.shift();
     console.log(post);
   });
 })();

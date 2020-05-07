@@ -6,7 +6,7 @@ const pg = knex({
     host: "localhost",
     user: "postgres",
     password: "123",
-    database: "1",
+    database: "travel",
   },
   pool: {
     max: 50,
