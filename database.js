@@ -5,8 +5,8 @@ const pg = knex({
   connection: {
     host: "localhost",
     user: "postgres",
-    password: "1",
-    database: "1"
+    password: "123",
+    database: "1",
   },
   pool: {
     max: 50,
@@ -17,7 +17,7 @@ const pg = knex({
     // idleTimeoutMillis: 30000,
     // reapIntervalMillis: 1000,
     // createRetryIntervalMillis: 100,
-    propagateCreateError: false // <- default is true, set to false
-  }
+    propagateCreateError: false, // <- default is true, set to false
+  },
 });
 module.exports = pg;
