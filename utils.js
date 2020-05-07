@@ -12,12 +12,12 @@ exports.insertOne = async (table, res) => {
 
 exports.updateOne = async (table, id, res) => {
   try {
-    await pg(table)
-      .update(res)
-      .where("id", id);
+    await pg(table).update(res).where("id", id);
   } catch (err) {
     if (err.routine !== "_bt_check_unique") {
       console.log(err);
     }
   }
 };
+
+exports.sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
